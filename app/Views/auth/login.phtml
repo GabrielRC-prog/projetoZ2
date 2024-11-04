@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projeto Z</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos básicos do corpo */
+        body {
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container de login */
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        /* Estilos do formulário */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            margin-right: 70px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            margin-right: 5px;
+            width: 80px;
+            text-align: right;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            flex: 1;
+            margin-left: 5px;
+        }
+
+        p {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #9370DB;
+        }
+
+        .img-login-logo {
+            max-width: 50px;
+            transform: scaleX(-1);
+            margin-right: 20px;
+            position: absolute;
+            left: 20px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 14px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .header a {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: black;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .header a:hover {
+            color: white;
+            background-color: black;
+            border-radius: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://cdn0.iconfinder.com/data/icons/the-middle-ages/500/Knight_dragon-512.png" class="img-login-logo">
+        <h1>Bem vindo ao projeto Z!</h1>
+        <a href="#">Continuar sem login</a>
+    </div>
+    <div class="login">
+        <h2 style="text-align: center;">Login</h2>
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" name="username" id="username_id" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password_id" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+        <p>Ainda não tem uma conta? <a href="">Registrar</a></p>
+    </div>
+</body>
