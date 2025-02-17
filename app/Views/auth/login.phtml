@@ -105,7 +105,7 @@
         .header a {
             position: absolute;
             right: 20px;
-            top: 20px;
+            top: 10px;
             color: black;
             text-decoration: none;
             padding: 5px 10px;
@@ -141,3 +141,35 @@
         <p>Ainda não tem uma conta? <a href="">Registrar</a></p>
     </div>
 </body>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        //obter os dados do formulário
+
+        let username = document.querySelector('#username_id').value;
+        let password = document.querySelector('#password_id').value;
+
+        //enviar via ajax
+        fetch('../../Controllers/AuthCon.php/processVerificaLoginAction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        })
+
+        .then(response=>response.json())
+        .then(data=>{
+            if (data.status === "success") {
+                alert(data.message);
+
+                console.log('deu certo!', data);
+            } else {
+                alert(data.message); // Exibe mensagem de erro
+            }
+        })
+        .catch(error => console.error("Erro:", error));
+    });
+</script>
