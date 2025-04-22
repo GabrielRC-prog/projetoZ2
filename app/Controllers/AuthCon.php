@@ -2,28 +2,37 @@
 
 namespace App\Controllers;
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 class AuthCon
 {
     public function index()
     {
         require __DIR__ . '/../Views/auth/login.phtml';
+        
     }
     public function processVerificaLoginAction()
     {
+
         header('Content-Type: application/json; charset=utf-8');
         header('X-Content-Type-Options: nosniff');
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $json = 
+        file_get_contents('php://input');
+        $data = json_decode($json, true);
+        $username = $data['username'] ?? '';
+        $password = $data['password'] ?? '';
 
         if ($username == 'aa' && $password == '123')
         {
-            echo json_encode(["status" => 'success', "message" => "Login realizado com sucesso. Bem vindo ao Projeto Z!"]);
+            http_response_code(200);
+            echo "ok";
         } else {
-            echo json_encode(["status" => 'success', "message" => "Usuario ou senha inválidos."]);
+            http_response_code(401); // Não autorizado
+            echo "fail";
         }
-
-        $a = "deu certo";
-        echo json_encode($a);   
+        
+        exit;
     }
 }

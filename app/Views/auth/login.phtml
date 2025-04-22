@@ -127,7 +127,7 @@
     </div>
     <div class="login">
         <h2 style="text-align: center;">Login</h2>
-        <form action="" method="post">
+        <form method="POST">
             <div class="form-group">
                 <label for="username">Usuario:</label>
                 <input type="text" name="username" id="username_id" class="form-control" required>
@@ -146,13 +146,10 @@
     document.querySelector('form').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        //obter os dados do formulário
-
         let username = document.querySelector('#username_id').value;
         let password = document.querySelector('#password_id').value;
 
-        //enviar via ajax
-        fetch('../../Controllers/AuthCon.php/processVerificaLoginAction', {
+        fetch("http://localhost/projetoZ2/verifica-login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -160,16 +157,17 @@
             body: JSON.stringify({ username, password })
         })
 
-        .then(response=>response.json())
-        .then(data=>{
-            if (data.status === "success") {
-                alert(data.message);
-
-                console.log('deu certo!', data);
+        .then(response=> {
+            if (response.status ===200) {
+                //window.location.href = "http://localhost/projetoZ2/home";
+                console.log("deu certo", response);
             } else {
-                alert(data.message); // Exibe mensagem de erro
-            }
+                alert ("deu n dog");
+                console.log("deu certo não", response);
+            }       
         })
-        .catch(error => console.error("Erro:", error));
+        .catch(error => {
+            console.error("Erro:", error);
+        });
     });
 </script>

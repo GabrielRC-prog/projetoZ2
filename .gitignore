@@ -1,1 +1,7 @@
 .vscode/launch.json
+.htaccess
+composer.lock
+composer.json
+teste.php
+launch_backup 24-02.json
+/vendor/
